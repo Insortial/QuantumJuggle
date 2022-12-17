@@ -30,13 +30,13 @@ class QuantumComputer(Computer):
         self.score = 0
         self.circuit_grid = circuit_grid
         self.measured_state = 0
-        self.last_measurement_time = pygame.time.get_ticks() - globals.MEASUREMENT_COOLDOWN_TIME
+        self.last_measurement_time = pygame.time.get_ticks() - globals.COOLDOWN_TIME
 
     def update(self, ball):
         current_time = pygame.time.get_ticks()
         # trigger measurement when the ball is close to quantum paddles
-        if 88 < ball.rect.x / globals.WIDTH_UNIT < 92:
-            if current_time - self.last_measurement_time > globals.MEASUREMENT_COOLDOWN_TIME:
+        if globals.FIELD_HEIGHT - 60 < ball.rect.y < globals.FIELD_HEIGHT:
+            if current_time - self.last_measurement_time > globals.COOLDOWN_TIME:
                 self.update_after_measurement()
                 self.last_measurement_time = pygame.time.get_ticks()
         else:

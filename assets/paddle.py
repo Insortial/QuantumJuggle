@@ -16,4 +16,4 @@ class QuantumPaddles:
     def __init__(self, y_pos):
         self.paddles = []
         for i in range(2**globals.NUM_QUBITS):
-            self.paddles.append(Paddle(i*globals.PADDLE_WIDTH + 10 + (globals.WINDOW_WIDTH - globals.FIELD_WIDTH)/2, y_pos))
+            self.paddles.append(Paddle(i*globals.PADDLE_WIDTH + (globals.WINDOW_WIDTH - globals.FIELD_WIDTH)/2, y_pos))

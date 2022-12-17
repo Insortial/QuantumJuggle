@@ -19,7 +19,7 @@ def draw_score(screen, lives):
     text_pos = text.get_rect(topright=(globals.WINDOW_WIDTH*0.95, globals.WIDTH_UNIT*2))
     screen.blit(text, text_pos)
 
-    text = font.score_font.render(str("3"), 1, globals.GRAY)
+    text = font.score_font.render(str(lives), 1, globals.GRAY)
     text_pos = text.get_rect(topright=(globals.WINDOW_WIDTH*0.95, globals.WIDTH_UNIT*8))
     screen.blit(text, text_pos)
 
