@@ -28,6 +28,13 @@ def draw_dashed_line(screen):
         pygame.draw.rect(
             screen,
             globals.GRAY,
-            (globals.WINDOW_WIDTH // 2 - 5, i, 0.5 * globals.WIDTH_UNIT, globals.WIDTH_UNIT),
+            ((globals.WINDOW_WIDTH - globals.FIELD_WIDTH)/2, i, 0.5 * globals.WIDTH_UNIT, globals.WIDTH_UNIT),
+            0,
+        ) 
+
+        pygame.draw.rect(
+            screen,
+            globals.GRAY,
+            ((globals.WINDOW_WIDTH - globals.FIELD_WIDTH)/2 + 700, i, 0.5 * globals.WIDTH_UNIT, globals.WIDTH_UNIT),
             0,
         ) 

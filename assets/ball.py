@@ -17,7 +17,7 @@ class Ball(pygame.sprite.Sprite):
         self.acceleration = .5
         self.reset(direction=1)
 
-    def update(self, lives):
+    def update(self, gameState):
         self.rect.x += self.velocity[0] + self.acceleration
         self.rect.y += self.velocity[1] + self.acceleration
 
@@ -25,7 +25,7 @@ class Ball(pygame.sprite.Sprite):
             self.velocity[1] = -self.velocity[1] * .75
 
         if self.rect.y > globals.FIELD_HEIGHT - globals.WIDTH_UNIT:
-            lives -= 1
+            gameState.lives -= 1
             self.reset(direction=1)
         
         if self.rect.x <= (globals.WINDOW_WIDTH - globals.FIELD_WIDTH)/2:
@@ -35,8 +35,9 @@ class Ball(pygame.sprite.Sprite):
 
     def bounce(self):
         # ball is sped up 50% after each bounce
-        self.velocity[0] = -self.velocity[0] * 1.15
+        self.velocity[0] = random.randint(-2,2)   
         self.velocity[1] = -self.velocity[1] * 1.15      
+        self.bounced = True
 
     def reset(self, direction):
         self.rect.centerx = globals.WINDOW_WIDTH / 2
